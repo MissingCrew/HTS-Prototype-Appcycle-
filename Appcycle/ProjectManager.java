@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -17,11 +19,22 @@ import java.util.Scanner;
 public class ProjectManager
 {
 
-    public static void main(String[] args)
-    {
+    private List<Project> projects;
+
+    public ProjectManager() {
+        
     }
 
-    public void createNewProject(Project p)
+    public static void main(String[] args)
+    {
+        ProjectManager p = new ProjectManager();
+        HashMap<String, Integer> materials = new HashMap<String, Integer>();
+        materials.put("Holz", 16);
+        materials.put("Blaetter", 25);
+        p.saveProject(new Project("Baum", "Einfach nur ein Baum", materials, "Du bauen Stamm und dann die blaetter darum hehe :D"));
+    }
+
+    public void saveProject(Project p)
     {
         File dir = new File("./" + p.getName());
         if(dir.mkdir())
@@ -46,7 +59,7 @@ public class ProjectManager
                 bw.newLine();
                 bw.close();
 
-                file = new File("./"+p.getName()+"materiallist.proj");
+                file = new File("./"+p.getName()+"/materiallist.proj");
                 file.createNewFile();
 
                 bw = new BufferedWriter(new FileWriter(file));
