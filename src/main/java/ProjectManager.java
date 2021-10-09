@@ -1,5 +1,3 @@
-package Appcycle;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -36,15 +34,7 @@ public class ProjectManager
         projects.add(p);
     }
 
-    public void saveAllProjects() {
-        projects.forEach(p -> saveProject(p));
-    }
-
-    public Project loadProject(File file) {
-        
-    }
-
-    public void saveProject(Project p)
+    /*public void saveProject(Project p)
     {
         File dir = new File("./" + p.getName());
         if(dir.mkdir())
@@ -87,7 +77,7 @@ public class ProjectManager
             System.out.println("Project already exists!");
             return;
         }       
-    }
+    }*/
 
     public void displayAllProjects() 
     {
@@ -101,4 +91,7 @@ public class ProjectManager
         return projects;
     }
 
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
 }

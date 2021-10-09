@@ -1,5 +1,3 @@
-package Appcycle;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +7,7 @@ public class Project {
     private String name;
     private String description;
     private HashMap<String, Integer> materials;
-    public String anleitung;
+    private String anleitung;
 
     /*
     Name
@@ -28,14 +26,6 @@ public class Project {
     public Project() {
         this.materials = new HashMap<>();
     }
-
-
-
-
-
-
-
-
 
     public void setName(String name) {
         this.name = name;
