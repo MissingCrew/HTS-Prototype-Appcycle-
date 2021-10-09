@@ -29,4 +29,9 @@ Was soll das Programm alles koennen??
 		(Fotos)
 		(Kosten)
 	
+Wie ist ein Projet(Produkt) aufgebaut
 
+	-name
+	-beschreibung
+	-materialliste
+	-anleitung
