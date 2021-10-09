@@ -1,13 +1,14 @@
 package Appcycle;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Project {
 
     private String name;
     private String description;
-    private List<String> materiallist;
+    private HashMap<String, Integer> materials;
     public String anleitung;
 
     /*
@@ -17,18 +18,18 @@ public class Project {
     Anleitung
     */
 
-    public Project(String name, String shrotDescription, List<String> materiallist, String anleitung) {
+    public Project(String name, String shortDescription, HashMap<String, Integer> materials, String anleitung) {
         this.name = name;
-        this.description = shrotDescription;
-        this.materiallist = materiallist;
+        this.description = shortDescription;
+        this.materials = materials;
         this.anleitung = anleitung;
     }
 
     public Project() {
-        this.materiallist = new ArrayList<>();
+        this.materials = new HashMap<>();
     }
 
-    
+
 
 
 
@@ -48,14 +49,14 @@ public class Project {
     public String getDescription() {
         return description;
     }
-    public void setMateriallist(List<String> materiallist) {
-        this.materiallist = materiallist;
+    public void setMateriallist(HashMap<String,Integer> materials) {
+        this.materials = materials;
     }
-    public void addMaterial(String material) {
-        this.materiallist.add(material);
+    public void addMaterial(String material, int count) {
+        this.materials.put(material, count);
     }
-    public List<String> getMateriallist() {
-        return materiallist;
+    public HashMap<String,Integer> getMateriallist() {
+        return materials;
     }
     public void setAnleitung(String anleitung) {
         this.anleitung = anleitung;
