@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ProjectManager",
+            "request": "launch",
+            "mainClass": "ProjectManager",
+            "projectName": "HTS_38a5746"
+        },
+        {
+            "type": "java",
             "name": "Launch Appcylce",
             "request": "launch",
             "mainClass": "Appcycle.Appcylce",
