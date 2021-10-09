@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
@@ -22,16 +23,25 @@ public class ProjectManager
     private List<Project> projects;
 
     public ProjectManager() {
-        
+        projects = new ArrayList<>();
     }
 
-    public static void main(String[] args)
-    {
-        ProjectManager p = new ProjectManager();
-        HashMap<String, Integer> materials = new HashMap<String, Integer>();
-        materials.put("Holz", 16);
-        materials.put("Blaetter", 25);
-        p.saveProject(new Project("Baum", "Einfach nur ein Baum", materials, "Du bauen Stamm und dann die blaetter darum hehe :D"));
+    public void addProject(Project p) {
+        for(Project all : projects) {
+            if(all.getName().equalsIgnoreCase(p.getName())) {
+                System.out.println("Project under this name already exists!");
+                return;
+            }
+        }
+        projects.add(p);
+    }
+
+    public void saveAllProjects() {
+        projects.forEach(p -> saveProject(p));
+    }
+
+    public Project loadProject(File file) {
+        
     }
 
     public void saveProject(Project p)
@@ -75,13 +85,20 @@ public class ProjectManager
         else
         {
             System.out.println("Project already exists!");
-            System.exit(-1);
+            return;
         }       
     }
 
     public void displayAllProjects() 
     {
-        // TODO:: Display All Projects
+        for(Project all : projects) {
+            System.out.println(all.getName() + " : " + all.getDescription());
+        }
+    }
+    
+
+    public List<Project> getProjects() {
+        return projects;
     }
 
 }

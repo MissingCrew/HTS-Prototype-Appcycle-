@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch ProjectManager",
             "request": "launch",
+            "mainClass": "Appcycle.ProjectManager",
+            "projectName": "HTS_e17da4d"
+        },
+        {
+            "type": "java",
+            "name": "Launch ProjectManager",
+            "request": "launch",
             "mainClass": "ProjectManager",
             "projectName": "HTS_38a5746"
         },
