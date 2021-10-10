@@ -59,6 +59,6 @@ public class JsonHandler {
         Appcycle.getProjectManager().setProjects(projectList);
         reader.close();
 
-        Appcycle.getProjectManager().displayAllProjects();
+        //Appcycle.getProjectManager().displayAllProjects();
     }
 }
