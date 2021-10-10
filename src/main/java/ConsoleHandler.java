@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleHandler {
@@ -20,7 +18,7 @@ public class ConsoleHandler {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        animate("y\n", 1000);
+        animate("y\n\n", 1000);
         //String login = scanner.nextLine();
         //clearScreen();
         /*switch (login) {
@@ -77,7 +75,7 @@ public class ConsoleHandler {
         }
     }
 
-    public void inputMaterials() {
+    public void addMaterials() {
         Scanner scanner = Appcycle.scanner;
         System.out.print("\nWillst du ein Material hinzufügen? (Y/N):");
         String mats = scanner.nextLine();
@@ -86,11 +84,25 @@ public class ConsoleHandler {
                 System.out.print("Material: ");
                 String material = scanner.nextLine();
                 Appcycle.getUser().addMaterialWithoutCount(material);
-                inputMaterials();
+                addMaterials();
                 break;
             case "N": case"n":
                 break;
+            default:
+                addMaterials();
+                break;
         }
+    }
+
+    public void showCommands() {
+        System.out.println("-------------------Commands-------------------");
+        System.out.println("login");
+        System.out.println("createproject");
+        System.out.println("addmaterials");
+        System.out.println("listmaterials");
+        System.out.println("listprojects");
+        System.out.println("showpercentages");
+        System.out.println("exit\n");
     }
 
     public void projectMaterials() {

@@ -1,7 +1,4 @@
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class Appcycle {
     public static Appcycle main;
@@ -62,8 +59,8 @@ public class Appcycle {
                 case "createproject":
                     consoleHandler.createProject();
                     break;
-                case "inputmaterials":
-                    consoleHandler.inputMaterials();
+                case "addmaterials":
+                    consoleHandler.addMaterials();
                     break;
                 case "listmaterials":
                     consoleHandler.projectMaterials();
@@ -78,6 +75,9 @@ public class Appcycle {
                         getProjectManager().displayPercentage(all, getUser().getMaterials());
                         System.out.println("\nAnleitung:" + all.getAnleitung());
                     }
+                    break;
+                case "help":
+                    consoleHandler.showCommands();
                     break;
                 case "exit":
                     JsonHandler.saveEverything();
