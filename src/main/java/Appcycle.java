@@ -25,17 +25,20 @@ public class Appcycle {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
-        try {
-            JsonHandler.loadAllProjects();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        JsonHandler.loadEverything();
         //System.out.print("\r");
         //System.out.println("deine mom");
 
-        //consoleHandler.projectLogin();
-
+        consoleHandler.projectLogin();
+        consoleHandler.inputMaterials();
         try {
+            JsonHandler.saveUser();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        consoleHandler.projectMaterials();
+
+        /*try {
             System.out.print("Hallo ich bin der Peter");
             Thread.sleep(1500);
             for (int i = 0; i < 1000; i++) {
@@ -45,11 +48,10 @@ public class Appcycle {
             for (int i = 0; i < 12; i++) {
                 System.out.println(" ");
             }
-            Thread.sleep(1500);
         }catch(Exception e)
         {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public static ProjectManager getProjectManager() {

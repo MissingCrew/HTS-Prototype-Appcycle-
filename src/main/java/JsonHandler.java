@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 public class JsonHandler {
 
@@ -60,5 +58,41 @@ public class JsonHandler {
         reader.close();
 
         //Appcycle.getProjectManager().displayAllProjects();
+    }
+
+    public static void saveUser() throws IOException {
+        Gson gson = new Gson();
+        /*File file = new File("User.json");
+        file.createNewFile();*/
+        FileWriter fileWriter = new FileWriter("User.json");
+        gson.toJson(Appcycle.getUser(), fileWriter);
+        fileWriter.close();
+    }
+
+    public static void loadUser() throws IOException {
+        Gson gson = new Gson();
+        FileReader fileReader = new FileReader("User.json");
+        BufferedReader reader = new BufferedReader(fileReader);
+        User user = gson.fromJson(reader.readLine(), User.class);
+        Appcycle.setUser(user);
+        reader.close();
+    }
+
+    public static void saveEverything() {
+        try {
+            saveUser();
+            saveAllProjects();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadEverything() {
+        try {
+            loadUser();
+            loadAllProjects();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

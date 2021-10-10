@@ -1,34 +1,49 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class User {
     private String username;
     private String password;
-    private List<String> materiallist;
+    private HashMap<String, Integer> materials;
 
 
-    public User(String username, String password, List<String> materiallist) {
+    public User(String username, String password, HashMap<String, Integer> materials) {
         this.username = username;
         this.password = password;
-        this.materiallist = materiallist;
+        this.materials = materials;
     }
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.materiallist = new ArrayList<>();
+        this.materials = new HashMap<>();
     }
 
-    public void setMateriallist(List<String> materiallist) {
-        this.materiallist = materiallist;
+    public void setMaterials(HashMap<String, Integer> materials) {
+        this.materials = materials;
     }
 
-    public void addMaterial(String material) {
-        this.materiallist.add(material);
+    public void addMaterialWithCount(String material, int count) {
+        this.materials.put(material.toLowerCase(), count);
     }
 
-    public List<String> getMateriallist() {
-        return materiallist;
+    public boolean isMaterial(String material) {
+        return materials.containsKey(material);
+    }
+
+    public void addMaterialWithoutCount(String material) {
+        if (!isMaterial(material.toLowerCase())) {
+            materials.put(material.toLowerCase(), 1);
+            return;
+        }
+        int count = materials.get(material.toLowerCase());
+        this.materials.put(material.toLowerCase(), count+1);
+        return;
+    }
+
+    public HashMap<String, Integer> getMaterials() {
+        return materials;
     }
 
     public String getUsername() {
