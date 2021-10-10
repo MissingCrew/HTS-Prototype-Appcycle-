@@ -20,7 +20,7 @@ public class ConsoleHandler {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        animate("y", 1000);
+        animate("y\n", 1000);
         //String login = scanner.nextLine();
         //clearScreen();
         /*switch (login) {
@@ -37,7 +37,7 @@ public class ConsoleHandler {
     }
 
     public void createProject() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = Appcycle.scanner;
         System.out.print("\n----------------------Create Project------------------------");
         System.out.println("\nName: ");
         String name = scanner.nextLine();
@@ -78,7 +78,7 @@ public class ConsoleHandler {
     }
 
     public void inputMaterials() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = Appcycle.scanner;
         System.out.print("\nWillst du ein Material hinzufügen? (Y/N):");
         String mats = scanner.nextLine();
         switch (mats) {
@@ -86,7 +86,6 @@ public class ConsoleHandler {
                 System.out.print("Material: ");
                 String material = scanner.nextLine();
                 Appcycle.getUser().addMaterialWithoutCount(material);
-                scanner.close();
                 inputMaterials();
                 break;
             case "N": case"n":

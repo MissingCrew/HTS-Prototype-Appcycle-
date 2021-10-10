@@ -7,7 +7,6 @@ import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
 
 import javax.print.attribute.SetOfIntegerSyntax;
 
@@ -44,9 +43,9 @@ public class ProjectManager
         double zsm = 0;
         for(String all : p.getMateriallist().keySet())
         {
-            max += p.getMateriallist().get(all);
-            zsm += mats.get(all);
             if (Appcycle.getUser().isMaterial(all)) {
+                max += p.getMateriallist().get(all);
+                zsm += mats.get(all);
                 System.out.print(all + " " + p.getMateriallist().get(all)+ "\t\t\t");
                 if(mats.get(all) != null && mats.get(all) != 0)
                 {

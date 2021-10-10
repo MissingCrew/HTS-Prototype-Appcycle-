@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Appcycle {
@@ -7,13 +8,18 @@ public class Appcycle {
     private static ProjectManager projectManager;
     private static ConsoleHandler consoleHandler;
     private static User user;
+    public static Scanner scanner;
 
 
     public static void main(String[] args){
         projectManager = new ProjectManager();
         consoleHandler = new ConsoleHandler();
+        scanner = new Scanner(System.in);
+
 
         JsonHandler.loadEverything();
+
+
 
         /*HashMap<String, Integer> materials = new HashMap<String, Integer>();
         materials.put("Holz", 16);
@@ -31,9 +37,62 @@ public class Appcycle {
         //System.out.println("deine mom");
         //consoleHandler.createProject();
 
-        consoleHandler.projectMaterials();
-        getProjectManager().displayAllProjects();
-        getProjectManager().displayPercentage(getProjectManager().getProjects().get(0), getUser().getMaterials());
+/*        if(args.equals("login"))
+        {
+            consoleHandler.projectLogin();
+        }
+        else if(args.equals("createproject"))
+        {
+            consoleHandler.projectLogin();
+        }
+        else if(args.equals("inputmaterials"))
+        {
+            consoleHandler.projectLogin();
+        }
+        else if(args.equals("listmaterials"))
+        {
+            consoleHandler.projectLogin();
+        }*/
+        while (true) {
+            String cmd = scanner.nextLine();
+            switch (cmd.toLowerCase()) {
+                case "login":
+                    consoleHandler.projectLogin();
+                    break;
+                case "createproject":
+                    consoleHandler.createProject();
+                    break;
+                case "inputmaterials":
+                    consoleHandler.inputMaterials();
+                    break;
+                case "listmaterials":
+                    consoleHandler.projectMaterials();
+                    break;
+                case "listprojects":
+                    getProjectManager().displayAllProjects();
+                    break;
+                case "showpercentages":
+                    for (Project all : getProjectManager().getProjects()) {
+                        System.out.println("------------------------------------------------------");
+                        System.out.println("Project Name: " + all.getName());
+                        getProjectManager().displayPercentage(all, getUser().getMaterials());
+                        System.out.println("\nAnleitung:" + all.getAnleitung());
+                    }
+                    break;
+                case "exit":
+                    JsonHandler.saveEverything();
+                    scanner.close();
+                    System.exit(1);
+                    break;
+                default:
+                    System.out.println("Unknown Command!");
+                    break;
+            }
+        }
+
+        //consoleHandler.projectMaterials();
+        //getProjectManager().displayAllProjects();
+        //getProjectManager().displayPercentage(getProjectManager().getProjects().get(0), getUser().getMaterials());
 
         //consoleHandler.projectLogin();
         //consoleHandler.inputMaterials();
@@ -53,7 +112,7 @@ public class Appcycle {
         {
             e.printStackTrace();
         }*/
-        JsonHandler.saveEverything();
+        //JsonHandler.saveEverything();
     }
 
     public static ProjectManager getProjectManager() {

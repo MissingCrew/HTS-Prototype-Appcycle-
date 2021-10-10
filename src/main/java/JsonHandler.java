@@ -2,7 +2,6 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +41,8 @@ public class JsonHandler {
 
 
         Gson gson = new Gson();
+        //File file = new File("Projects.json");
+        //file.createNewFile();
         FileWriter fileWriter = new FileWriter("Projects.json");
         Project[] projectArray = Appcycle.getProjectManager().getProjects().toArray(new Project[Appcycle.getProjectManager().getProjects().size()]);
         gson.toJson(projectArray, fileWriter);
