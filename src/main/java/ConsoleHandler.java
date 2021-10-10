@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 public class ConsoleHandler {
 
-    public ConsoleHandler() {
-
-    }
+    public ConsoleHandler() {}
 
     public void projectLogin() {
         //Scanner scanner = new Scanner(System.in);
@@ -38,6 +36,33 @@ public class ConsoleHandler {
         Appcycle.getUser().addMaterialWithoutCount("Stock");*/
     }
 
+    public void createProject() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\n----------------------Create Project------------------------");
+        System.out.println("\nName: ");
+        String name = scanner.nextLine();
+        System.out.println("Description: ");
+        String description = scanner.nextLine();
+
+        Project project = new Project(name, description);
+
+        String materialBool = "y";
+        System.out.println("------------------------------------------------------------ ");
+        do {
+            System.out.println("Füge ein Material hinzu: ");
+            String material = scanner.next();
+            System.out.print("Wie oft? ");
+            int count = scanner.nextInt();
+            System.out.print("\nMöchtest du ein weiteres Material hinzufügen? (Y/N) ");
+            materialBool = scanner.next();
+            project.addMaterial(material.toLowerCase(),count);
+        } while (!materialBool.equalsIgnoreCase("n"));
+
+        System.out.println("------------------------------------------------------------ ");
+        System.out.println("Das Project '" + name + "' wurde erfolgreich erstellt!");
+        Appcycle.getProjectManager().addProject(project);
+    }
+
     private void animate(String msg, int millis)
     {
         try {
@@ -61,6 +86,7 @@ public class ConsoleHandler {
                 System.out.print("Material: ");
                 String material = scanner.nextLine();
                 Appcycle.getUser().addMaterialWithoutCount(material);
+                scanner.close();
                 inputMaterials();
                 break;
             case "N": case"n":
@@ -69,7 +95,7 @@ public class ConsoleHandler {
     }
 
     public void projectMaterials() {
-        System.out.println("\n----------------------Materials-------------------------");
+        System.out.println("\n-----------------------Materials-------------------------");
         for (String all : Appcycle.getUser().getMaterials().keySet()) {
             System.out.println(all + " x" + Appcycle.getUser().getMaterials().get(all));
         }

@@ -40,32 +40,36 @@ public class ProjectManager
     {
         //p.getMateriallist();
         //Stein                           75% [#######---]
-        HashMap<String, Integer> x = new HashMap<>();
-        int max = p.getMateriallist().size()*100;
-        double zsm;
-        System.out.println("Du hast " + (100/max*zsm) + "% der Materialien");
+        int max = 0;
+        double zsm = 0;
         for(String all : p.getMateriallist().keySet())
         {
-            System.out.print(all + " " + p.getMateriallist().get(all)+ "\t\t\t");
-            if(mats.get(all) != null)
-            {
-                double proz = 100 / p.getMateriallist().get(all) * mats.get(all);
-                System.out.print(" [");
-                for (int i = 0; i < Math.round(proz); i++) {
-                    System.out.print("#");
+            max += p.getMateriallist().get(all);
+            zsm += mats.get(all);
+            if (Appcycle.getUser().isMaterial(all)) {
+                System.out.print(all + " " + p.getMateriallist().get(all)+ "\t\t\t");
+                if(mats.get(all) != null && mats.get(all) != 0)
+                {
+                    double proz = (double) 100 / p.getMateriallist().get(all) * mats.get(all);
+                    //System.out.println(proz);
+                    System.out.print(" [");
+                    for (int i = 0; i < proz /10; i++) {
+                        System.out.print("#");
+                    }
+                    int temp = 10- (int) proz /10 ;
+                    for (int i = 0; i < temp; i++) {
+                        System.out.print("-");
+                    }
+                    System.out.println("] " + ((proz *100.0) / 100.0) + "%");
+                    //zsm += Math.round((proz * 100)/100);
                 }
-                int temp = 10-Math.round(proz);
-                for (int i = 0; i < temp; i++) {
-                    System.out.print("-");
+                else
+                {
+                    System.out.print(" [----------] 0%\n");
                 }
-                System.out.println("] " + Math.round((Math.round(proz) *100.0) / 100.0) + "%");
-                zsm += Math.round((proz * 100)/100);
-            }
-            else
-            {
-                System.out.print(" [----------] 0%\n");
             }
         }
+        System.out.println("Du hast " +  Math.round(100.0/max*zsm) + "% der Materialien");
     }
     public void displayAllProjects()
     {

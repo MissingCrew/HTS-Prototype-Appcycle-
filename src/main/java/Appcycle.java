@@ -13,6 +13,8 @@ public class Appcycle {
         projectManager = new ProjectManager();
         consoleHandler = new ConsoleHandler();
 
+        JsonHandler.loadEverything();
+
         /*HashMap<String, Integer> materials = new HashMap<String, Integer>();
         materials.put("Holz", 16);
         materials.put("Blaetter", 25);
@@ -25,18 +27,17 @@ public class Appcycle {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
-        JsonHandler.loadEverything();
         //System.out.print("\r");
         //System.out.println("deine mom");
+        //consoleHandler.createProject();
 
-        consoleHandler.projectLogin();
-        consoleHandler.inputMaterials();
-        try {
-            JsonHandler.saveUser();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         consoleHandler.projectMaterials();
+        getProjectManager().displayAllProjects();
+        getProjectManager().displayPercentage(getProjectManager().getProjects().get(0), getUser().getMaterials());
+
+        //consoleHandler.projectLogin();
+        //consoleHandler.inputMaterials();
+        //consoleHandler.projectMaterials();
 
         /*try {
             System.out.print("Hallo ich bin der Peter");
@@ -52,6 +53,7 @@ public class Appcycle {
         {
             e.printStackTrace();
         }*/
+        JsonHandler.saveEverything();
     }
 
     public static ProjectManager getProjectManager() {
