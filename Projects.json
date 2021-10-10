@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 [{"name":"Baum","description":"Einfach nur ein Baum","materials":{"holz":16,"blaetter":25},"anleitung":"Du bauen Stamm und dann die blaetter darum hehe :D"},{"name":"Bücherstuhl","description":"Ein Stuhl aud Büchern","materials":{"buch":20,"y":4,"holzplanke":6},"anleitung":""},{"name":"Schuhblumentopf","description":"Toll","materials":{"erde":2,"gummistiefel":2},"anleitung":""}]
+=======
+[
+  {
+    "name": "Schuhtopf",
+    "description": "Topf/Vasen ersatz",
+    "materials": { "Schuhe": 1, "Blumenerde": 1 },
+    "anleitung": "Du nutzt die Schuhe als Topf/Vase"
+  },
+  {
+    "name": "Nudelsieblampe",
+    "description": "Eine Lampe aus mehreren Nudelsieben",
+    "materials": { "Nudelsieb": 4, "Holzbrett": 1, "Seil": 2, "Gluehbirne": 4 },
+    "anleitung": "Jede Gluehbirne wird an einem Nudelsieb befaesstigt und dieser wird das Holzbrett geklebt das mit hilfe der zwei Seilen von der Decke haengen kann"
+  },
+  {
+    "name": "Keyboardlampe",
+    "description": "Eine informatisch/technisch aussehende Lampe",
+    "materials": { "Tastatur": 1, "Schraubendeckel": 2, "Gluehbirne": 1 },
+    "anleitung": "Aus der Tastatur wird die halbdurchsichtige Leiterbahn folie entnommen und diese an denn Rand der beiden Schraubendeckel geklebt, welche fuer die stabilitaet der zylinderlampe sorgen"
+  },
+  {
+    "name": "Teelichthalterung",
+    "description": "Schoen aussehende Teelichthalterung aus einem alten Marmeladenglass",
+    "materials": { "Marmeladenglass": 1, "Seil": 1, "Teelicht": 1 },
+    "anleitung": "Das Seil wird um das Marmeladenglas gewickelt und das Teelicht kommt in das Glass hinnein"
+  }
+]
+>>>>>>> 38bfdec9bd5322f43af6c9467b4840b6bdf9d329
