@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.print.attribute.SetOfIntegerSyntax;
+
 
 /**
  * Handles Projects
@@ -34,52 +36,38 @@ public class ProjectManager
         projects.add(p);
     }
 
-    /*public void saveProject(Project p)
+    public void displayPercentage(Project p, HashMap<String, Integer> mats)
     {
-        File dir = new File("./" + p.getName());
-        if(dir.mkdir())
+        //p.getMateriallist();
+        //Stein                           75% [#######---]
+        HashMap<String, Integer> x = new HashMap<>();
+        int max = p.getMateriallist().size()*100;
+        double zsm;
+        System.out.println("Du hast " + (100/max*zsm) + "% der Materialien");
+        for(String all : p.getMateriallist().keySet())
         {
-            try {
-                                       //  ./{PROJECTNAME}/info.proj
-                File file = new File("./"+p.getName()+"/info.proj");
-                file.createNewFile();
-                
-                BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-                bw.write(p.getName());
-                bw.newLine();
-                bw.write(p.getDescription());
-                bw.newLine();
-                bw.close();
-
-                file = new File("./"+p.getName()+"/anleitung.proj");
-                file.createNewFile();
-
-                bw = new BufferedWriter(new FileWriter(file));
-                bw.write(p.getAnleitung());
-                bw.newLine();
-                bw.close();
-
-                file = new File("./"+p.getName()+"/materiallist.proj");
-                file.createNewFile();
-
-                bw = new BufferedWriter(new FileWriter(file));
-                bw.write(p.getMateriallist().toString());
-                bw.newLine();
-                bw.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
+            System.out.print(all + " " + p.getMateriallist().get(all)+ "\t\t\t");
+            if(mats.get(all) != null)
+            {
+                double proz = 100 / p.getMateriallist().get(all) * mats.get(all);
+                System.out.print(" [");
+                for (int i = 0; i < Math.round(proz); i++) {
+                    System.out.print("#");
+                }
+                int temp = 10-Math.round(proz);
+                for (int i = 0; i < temp; i++) {
+                    System.out.print("-");
+                }
+                System.out.println("] " + Math.round((Math.round(proz) *100.0) / 100.0) + "%");
+                zsm += Math.round((proz * 100)/100);
             }
-
+            else
+            {
+                System.out.print(" [----------] 0%\n");
+            }
         }
-        else
-        {
-            System.out.println("Project already exists!");
-            return;
-        }       
-    }*/
-
-    public void displayAllProjects() 
+    }
+    public void displayAllProjects()
     {
         for(Project all : projects) {
             System.out.println(all.getName() + " : " + all.getDescription());
