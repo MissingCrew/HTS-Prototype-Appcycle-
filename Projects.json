@@ -1,1 +1,1 @@
-[{"name":"Baum","description":"Einfach nur ein Baum","materials":{"Blaetter":25,"Holz":16},"anleitung":"Du bauen Stamm und dann die blaetter darum hehe :D"}]
+[{"name":"Baum","description":"Einfach nur ein Baum","materials":{"holz":16,"blaetter":25},"anleitung":"Du bauen Stamm und dann die blaetter darum hehe :D"},{"name":"Bücherstuhl","description":"Ein Stuhl aud Büchern","materials":{"buch":20,"y":4,"holzplanke":6},"anleitung":""},{"name":"Schuhblumentopf","description":"Toll","materials":{"erde":2,"gummistiefel":2},"anleitung":""}]

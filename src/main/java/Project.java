@@ -23,6 +23,13 @@ public class Project {
         this.anleitung = anleitung;
     }
 
+    public Project(String name, String shortDescription) {
+        this.name = name;
+        this.description = shortDescription;
+        this.materials = new HashMap<>();
+        this.anleitung = "";
+    }
+
     public Project() {
         this.materials = new HashMap<>();
     }
