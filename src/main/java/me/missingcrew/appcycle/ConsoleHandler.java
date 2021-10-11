@@ -1,3 +1,5 @@
+package me.missingcrew.appcycle;
+
 import java.util.Scanner;
 
 public class ConsoleHandler {
@@ -23,20 +25,20 @@ public class ConsoleHandler {
         //clearScreen();
         /*switch (login) {
             case "Y": case "y":
-                Appcycle.setUser(new User(username, password));
+                me.missingcrew.appcycle.Appcycle.setUser(new me.missingcrew.appcycle.User(username, password));
                 break;
             case "N": case"n":
                 projectLogin();
         }*/
-        //Appcycle.setUser(new User("Pascal", "187Fanboy"));
-        /*Appcycle.getUser().addMaterialWithCount("Stein", 20);
-        Appcycle.getUser().addMaterialWithCount("LED", 4);
-        Appcycle.getUser().addMaterialWithoutCount("Stock");*/
+        //me.missingcrew.appcycle.Appcycle.setUser(new me.missingcrew.appcycle.User("Pascal", "187Fanboy"));
+        /*me.missingcrew.appcycle.Appcycle.getUser().addMaterialWithCount("Stein", 20);
+        me.missingcrew.appcycle.Appcycle.getUser().addMaterialWithCount("LED", 4);
+        me.missingcrew.appcycle.Appcycle.getUser().addMaterialWithoutCount("Stock");*/
     }
 
     public void createProject() {
         Scanner scanner = Appcycle.scanner;
-        System.out.print("\n----------------------Create Project------------------------");
+        System.out.print("\n----------------------Create me.missingcrew.appcycle.Project------------------------");
         System.out.println("\nName: ");
         String name = scanner.nextLine();
         System.out.println("Description: ");
@@ -57,7 +59,7 @@ public class ConsoleHandler {
         } while (!materialBool.equalsIgnoreCase("n"));
 
         System.out.println("------------------------------------------------------------ ");
-        System.out.println("Das Project '" + name + "' wurde erfolgreich erstellt!");
+        System.out.println("Das me.missingcrew.appcycle.Project '" + name + "' wurde erfolgreich erstellt!");
         Appcycle.getProjectManager().addProject(project);
     }
 

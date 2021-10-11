@@ -1,14 +1,8 @@
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+package me.missingcrew.appcycle;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import javax.print.attribute.SetOfIntegerSyntax;
 
 
 /**
@@ -28,7 +22,7 @@ public class ProjectManager
     public void addProject(Project p) {
         for(Project all : projects) {
             if(all.getName().equalsIgnoreCase(p.getName())) {
-                System.out.println("Project under this name already exists!");
+                System.out.println("me.missingcrew.appcycle.Project under this name already exists!");
                 return;
             }
         }

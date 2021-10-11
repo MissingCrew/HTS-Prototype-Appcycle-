@@ -1,3 +1,5 @@
+package me.missingcrew.appcycle;
+
 import java.util.Scanner;
 
 public class Appcycle {
@@ -22,11 +24,11 @@ public class Appcycle {
         materials.put("Holz", 16);
         materials.put("Blaetter", 25);
 
-        Project p = new Project("Baum", "Einfach nur ein Baum", materials, "Du bauen Stamm und dann die blaetter darum hehe :D");
+        me.missingcrew.appcycle.Project p = new me.missingcrew.appcycle.Project("Baum", "Einfach nur ein Baum", materials, "Du bauen Stamm und dann die blaetter darum hehe :D");
         projectManager.addProject(p);
         projectManager.displayAllProjects();
         try {
-            JsonHandler.saveAllProjects();
+            me.missingcrew.appcycle.JsonHandler.saveAllProjects();
         } catch (IOException e) {
             e.printStackTrace();
         }*/
@@ -71,7 +73,7 @@ public class Appcycle {
                 case "showpercentages":
                     for (Project all : getProjectManager().getProjects()) {
                         System.out.println("------------------------------------------------------");
-                        System.out.println("Project Name: " + all.getName());
+                        System.out.println("me.missingcrew.appcycle.Project Name: " + all.getName());
                         getProjectManager().displayPercentage(all, getUser().getMaterials());
                         System.out.println("\nAnleitung:" + all.getAnleitung());
                     }
@@ -112,7 +114,7 @@ public class Appcycle {
         {
             e.printStackTrace();
         }*/
-        //JsonHandler.saveEverything();
+        //me.missingcrew.appcycle.JsonHandler.saveEverything();
     }
 
     public static ProjectManager getProjectManager() {

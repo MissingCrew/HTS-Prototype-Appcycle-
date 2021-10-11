@@ -20,7 +20,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>Appcycle</mainClass>
+                            <mainClass>me.missingcrew.appcycle.Appcycle</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

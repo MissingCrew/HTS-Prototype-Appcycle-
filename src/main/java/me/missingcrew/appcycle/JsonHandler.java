@@ -1,3 +1,5 @@
+package me.missingcrew.appcycle;
+
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ public class JsonHandler {
 
     public static void saveAllProjects() throws IOException {
 
-        /*for (Project all : Appcycle.getProjectManager().getProjects()) {
+        /*for (me.missingcrew.appcycle.Project all : me.missingcrew.appcycle.Appcycle.getProjectManager().getProjects()) {
             File file = new File("./projects/" + all.getName() + ".txt");
             //file.createNewFile();
             JSONObject obj = new JSONObject();
@@ -58,21 +60,21 @@ public class JsonHandler {
         Appcycle.getProjectManager().setProjects(projectList);
         reader.close();
 
-        //Appcycle.getProjectManager().displayAllProjects();
+        //me.missingcrew.appcycle.Appcycle.getProjectManager().displayAllProjects();
     }
 
     public static void saveUser() throws IOException {
         Gson gson = new Gson();
-        /*File file = new File("User.json");
+        /*File file = new File("me.missingcrew.appcycle.User.json");
         file.createNewFile();*/
-        FileWriter fileWriter = new FileWriter("User.json");
+        FileWriter fileWriter = new FileWriter("me.missingcrew.appcycle.User.json");
         gson.toJson(Appcycle.getUser(), fileWriter);
         fileWriter.close();
     }
 
     public static void loadUser() throws IOException {
         Gson gson = new Gson();
-        FileReader fileReader = new FileReader("User.json");
+        FileReader fileReader = new FileReader("me.missingcrew.appcycle.User.json");
         BufferedReader reader = new BufferedReader(fileReader);
         User user = gson.fromJson(reader.readLine(), User.class);
         Appcycle.setUser(user);
